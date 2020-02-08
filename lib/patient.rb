@@ -17,6 +17,8 @@ class Patient
   end
   
   def doctors()
-    appointments.map{|app| app.doctor}
+    appointments.map do |app|
+      app.patient
+    end
   end
 end
