@@ -29,6 +29,5 @@ class Doctor
       arr << app.patient
     end
     arr
-    binding.pry
   end
 end
