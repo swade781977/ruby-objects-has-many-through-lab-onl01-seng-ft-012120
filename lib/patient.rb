@@ -21,8 +21,10 @@ class Patient
   end
   
   def doctors()
-    appointments.map do |app|
-      app.patient
+    arr = []
+    appointments.each do |app|
+      arr << app.doctors
     end
+    arr
   end
 end
