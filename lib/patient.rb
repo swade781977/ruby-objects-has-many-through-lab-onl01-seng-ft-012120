@@ -23,7 +23,7 @@ class Patient
   def doctors()
     arr = []
     appointments.each do |app|
-      arr << app.doctors
+      arr << app.doctor
     end
     arr
   end
