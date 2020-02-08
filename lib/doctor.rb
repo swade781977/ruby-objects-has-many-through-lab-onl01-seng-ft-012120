@@ -24,8 +24,9 @@ class Doctor
   end
   
   def patients
-    appointments.map do |app|
-      app.patient
+    arr = []
+    appointments.each do |app|
+      arr << app.patient
     end
     binding.pry
   end
