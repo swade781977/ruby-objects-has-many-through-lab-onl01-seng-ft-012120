@@ -28,6 +28,7 @@ class Doctor
     appointments.each do |app|
       arr << app.patient
     end
+    arr
     binding.pry
   end
 end
