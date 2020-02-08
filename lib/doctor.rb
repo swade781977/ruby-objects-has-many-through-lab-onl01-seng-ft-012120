@@ -1,5 +1,7 @@
+require "pry"
 class Doctor
   attr_accessor :name 
+  
   @@all = []
   
   def initialize(name)
@@ -7,17 +9,25 @@ class Doctor
     @@all << self
   end
   
-  def appointments
-    Appointment.all.select{|app| app.doctor == self}
+  def self.all
+    @@all
   end
   
-  def new_appointment(date, patient)
+  def appointments
+    Appointment.all.select do |app| 
+      app.doctor == self
+    end
+  end
+  
+  def new_appointment(patient, date)
     Appointment.new(date, patient, self)
   end
   
   def patients
-    appointments.map do |app|
-      app.patient 
+    arr = []
+    appointments.each do |app|
+      arr << app.patient
     end
+    arr
   end
 end

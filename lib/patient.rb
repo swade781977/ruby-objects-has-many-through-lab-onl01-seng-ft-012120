@@ -3,19 +3,28 @@ class Patient
   
   @@all = []
   
-  def intialize(name)
+  def initialize(name)
     @name = name
+    @@all << self
   end
   
   def self.all
     @@all
   end
   
+  def new_appointment(doctor, date)
+    Appointment.new(date, self, doctor)
+  end
+  
   def appointments
     Appointment.all.select{|app| app.patient == self}
   end
   
-  def doctors
-    appointments.map{|app| app.doctor}
+  def doctors()
+    arr = []
+    appointments.each do |app|
+      arr << app.doctor
+    end
+    arr
   end
 end
